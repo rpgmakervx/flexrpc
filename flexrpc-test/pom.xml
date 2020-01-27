@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>org.easyarch.flexrpc</groupId>
-            <artifactId>flexrpc-codec</artifactId>
+            <artifactId>flexrpc-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

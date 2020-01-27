@@ -6,10 +6,10 @@ package org.easyarch.flexrpc.codec;
  * Created on 2020-01-23
  * 编解码器，提供多种实现
  */
-public interface Codec<T> {
+public interface Codec {
 
-    byte[] encode(T data);
+    <T> byte[] encode(T data);
 
-    T decode(byte[] data, Class<T> clazz);
+    <T> T decode(byte[] data, Class<T> clazz);
 
 }

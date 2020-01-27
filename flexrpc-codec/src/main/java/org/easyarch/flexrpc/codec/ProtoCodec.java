@@ -26,7 +26,7 @@ import io.protostuff.runtime.RuntimeSchema;
  */
 @Lazy
 @Service
-public class ProtoCodec<T> implements Codec<T>{
+public class ProtoCodec implements Codec {
 
     protected static final Logger logger = LoggerFactory.getLogger(ProtoCodec.class);
 
@@ -34,10 +34,10 @@ public class ProtoCodec<T> implements Codec<T>{
 
     private static Map<Class<?>, Schema<?>> cachedSchema = new ConcurrentHashMap();
 
-    private Schema<T> getSchema(Class<T> cls, Set<String> exclutions) {
+    private <T> Schema<T> getSchema(Class<T> cls, Set<String> exclutions) {
         Schema<T> schema = (Schema<T>) cachedSchema.get(cls);
         if (schema == null) {
-            if (exclutions == null){
+            if (exclutions == null) {
                 exclutions = new HashSet<>();
             }
             schema = RuntimeSchema.createFrom(cls, exclutions, RuntimeEnv.ID_STRATEGY);
@@ -48,7 +48,7 @@ public class ProtoCodec<T> implements Codec<T>{
 
 
     @Override
-    public byte[] encode(T data) {
+    public <T> byte[] encode(T data) {
         Class<T> clazz = (Class<T>) data.getClass();
         Schema<T> schema = getSchema(clazz, ImmutableSet.of());
         logger.info("encode schema:{}, class:{}", schema, clazz);
@@ -60,7 +60,7 @@ public class ProtoCodec<T> implements Codec<T>{
     }
 
     @Override
-    public T decode(byte[] data, Class<T> clazz) {
+    public <T> T decode(byte[] data, Class<T> clazz) {
         Schema<T> schema = getSchema(clazz, ImmutableSet.of());
         T obj = schema.newMessage();
         ProtostuffIOUtil.mergeFrom(data, obj, schema);

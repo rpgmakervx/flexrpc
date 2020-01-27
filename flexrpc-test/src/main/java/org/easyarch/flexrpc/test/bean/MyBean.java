@@ -1,5 +1,7 @@
 package org.easyarch.flexrpc.test.bean;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 /**
  * 认真负责地对待每行代码
  * @author code4j <xingtianyu03@kuaishou.com>
@@ -30,9 +32,6 @@ public class MyBean {
 
     @Override
     public String toString() {
-        return "MyBean{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return ToStringBuilder.reflectionToString(this);
     }
 }

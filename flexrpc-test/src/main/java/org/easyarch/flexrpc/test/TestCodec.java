@@ -14,20 +14,20 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * Created on 2020-01-26
  *
  */
-public class TestMain {
+public class TestCodec {
 
-    protected static final Logger logger = LoggerFactory.getLogger(TestMain.class);
+    protected static final Logger logger = LoggerFactory.getLogger(TestCodec.class);
 
     public static void main(String[] args) {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(FlexRpcConfiguration.class);
         ProtoCodec codec = (ProtoCodec) context.getBean("protoCodec");
         MyBean bean = new MyBean();
-        bean.setId(10000L);
+//        bean.setId(10000L);
         bean.setName("xingtianyu");
         byte[] data = codec.encode(bean);
         logger.info("byte size:{}", data.length);
-        MyBean newBean = (MyBean) codec.decode(data, MyBean.class);
+        MyBean newBean = (MyBean) codec.decode(data, Object.class);
         logger.info("bean info:{}", newBean);
     }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.easyarch.flexrpc</groupId>
+    <artifactId>flexrpc</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>flexrpc-core</module>
+        <module>flexrpc-codec</module>
+        <module>flexrpc-registry</module>
+        <module>flexrpc-common</module>
+        <module>flexrpc-test</module>
+    </modules>
+
+
+    <properties>
+        <revision>0.0.1-SNAPSHOT</revision>
+        <protostuff.version>1.5.2</protostuff.version>
+        <objenesis.version>2.6</objenesis.version>
+        <netty.version>4.1.22.Final</netty.version>
+        <spring.version>5.0.3.RELEASE</spring.version>
+        <spring-boot.version>1.5.7.RELEASE</spring-boot.version>
+        <guava.version>19.0</guava.version>
+        <slf4j-api.version>1.7.25</slf4j-api.version>
+        <zookeeper.version>3.4.8</zookeeper.version>
+        <jackson.version>2.7.0</jackson.version>
+    </properties>
+
+</project>
